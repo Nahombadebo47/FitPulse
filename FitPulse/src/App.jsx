@@ -1,23 +1,36 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar'; // Ensure NavBar is imported
+
+// Importing Pages
 import LandingPage from './pages/LandingPage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage'; // Assuming this is implemented
+import HomePage from './pages/HomePage';
+import ProfilePage from './pages/ProfileSettingsPage';
+import ProgressTrackingPage from './pages/ProgressTrackingPage'; 
+import WorkoutHistoryPage from './pages/WorkoutHistoryPage';
+import WorkoutLogPage from './pages/WorkoutLogPage';
+import ExerciseSearchPage from './pages/ExerciseSearchPage';
+import ExerciseDetailsPage from './pages/ExerciseDetailsPage';
 
 // Create a wrapper component for conditional rendering of the NavBar
 const Layout = ({ children }) => {
   const location = useLocation();
 
-  // Do not show the NavBar on these specific paths
+  // Do not show the NavBar on the following paths
   const hideNavBarPaths = ['/', '/signup', '/login'];
   const shouldShowNavBar = !hideNavBarPaths.includes(location.pathname);
 
   return (
     <div className="flex">
-      {shouldShowNavBar && <NavBar />} {/* Show NavBar only if not in excluded paths */}
-      <div className="flex-grow">{children}</div>
+      {/* Conditionally render the NavBar */}
+      {shouldShowNavBar && <NavBar />}
+
+      {/* Main Content */}
+      <div className="flex-grow">
+        {children}
+      </div>
     </div>
   );
 };
@@ -30,8 +43,13 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/home" element={<HomePage />} /> {/* Home page route */}
-          {/* Add other routes here when needed */}
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/progress-tracking" element={<ProgressTrackingPage />} />
+          <Route path="/workout-history" element={<WorkoutHistoryPage />} />
+          <Route path="/workout-log" element={<WorkoutLogPage />} />
+          <Route path="/exercise-search" element={<ExerciseSearchPage />} />
+          <Route path="/exercise-details" element={<ExerciseDetailsPage />} />
         </Routes>
       </Layout>
     </Router>
