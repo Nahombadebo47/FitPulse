@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../assets/Logo.png'; // Import your logo
+import Logo from '../assets/Logo.png'; // Import the logo
+
+// Import the icons
+import HomeIcon from '../assets/Home.png';
+import ProfileIcon from '../assets/Profile.png';
+import ProgressIcon from '../assets/Progress.png';
+import HistoryIcon from '../assets/History.png';
+import LogIcon from '../assets/Log.png';
+import SearchIcon from '../assets/Search.png';
 
 const NavBar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -33,47 +41,67 @@ const NavBar = () => {
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex flex-col items-center justify-between mt-10">
-          <Link to="/home" className="flex items-center text-white py-4">
-            <span className={`mr-3 ${isExpanded ? 'block' : 'hidden'}`}>
-              <img src="" alt="Home Icon" className="w-6 h-6" />
-            </span>
-            {isExpanded && <span className="text-white">Home</span>}
+        <nav className="flex flex-col mt-10 space-y-4">
+          {/* Each Link with icon, text, and hover effect */}
+          <Link to="/home" className="group flex items-center justify-center md:justify-start text-white relative">
+            <img src={HomeIcon} alt="Home Icon" className="w-8 h-8" />
+            {isExpanded && <span className="ml-4">Home</span>}
+            {/* Hover Effect */}
+            {!isExpanded && (
+              <span className="absolute left-16 ml-2 text-sm bg-gray-700 text-white rounded py-1 px-2 opacity-0 group-hover:opacity-100">
+                Home
+              </span>
+            )}
           </Link>
 
-          <Link to="/profile" className="flex items-center text-white py-4">
-            <span className={`mr-3 ${isExpanded ? 'block' : 'hidden'}`}>
-              <img src="" alt="Profile Icon" className="w-6 h-6" />
-            </span>
-            {isExpanded && <span className="text-white">Profile</span>}
+          <Link to="/profile" className="group flex items-center justify-center md:justify-start text-white relative">
+            <img src={ProfileIcon} alt="Profile Icon" className="w-8 h-8" />
+            {isExpanded && <span className="ml-4">Profile</span>}
+            {!isExpanded && (
+              <span className="absolute left-16 ml-2 text-sm bg-gray-700 text-white rounded py-1 px-2 opacity-0 group-hover:opacity-100">
+                Profile
+              </span>
+            )}
           </Link>
 
-          <Link to="/progress-tracking" className="flex items-center text-white py-4">
-            <span className={`mr-3 ${isExpanded ? 'block' : 'hidden'}`}>
-              <img src="" alt="Progress Tracking Icon" className="w-6 h-6" />
-            </span>
-            {isExpanded && <span className="text-white">Progress Tracking</span>}
+          <Link to="/progress-tracking" className="group flex items-center justify-center md:justify-start text-white relative">
+            <img src={ProgressIcon} alt="Progress Icon" className="w-8 h-8" />
+            {isExpanded && <span className="ml-4">Progress Tracking</span>}
+            {!isExpanded && (
+              <span className="absolute left-16 ml-2 text-sm bg-gray-700 text-white rounded py-1 px-2 opacity-0 group-hover:opacity-100">
+                Progress Tracking
+              </span>
+            )}
           </Link>
 
-          <Link to="/workout-history" className="flex items-center text-white py-4">
-            <span className={`mr-3 ${isExpanded ? 'block' : 'hidden'}`}>
-              <img src="" alt="Workout History Icon" className="w-6 h-6" />
-            </span>
-            {isExpanded && <span className="text-white">Workout History</span>}
+          <Link to="/workout-history" className="group flex items-center justify-center md:justify-start text-white relative">
+            <img src={HistoryIcon} alt="Workout History Icon" className="w-8 h-8" />
+            {isExpanded && <span className="ml-4">Workout History</span>}
+            {!isExpanded && (
+              <span className="absolute left-16 ml-2 text-sm bg-gray-700 text-white rounded py-1 px-2 opacity-0 group-hover:opacity-100">
+                Workout History
+              </span>
+            )}
           </Link>
 
-          <Link to="/workout-log" className="flex items-center text-white py-4">
-            <span className={`mr-3 ${isExpanded ? 'block' : 'hidden'}`}>
-              <img src="" alt="Workout Log Icon" className="w-6 h-6" />
-            </span>
-            {isExpanded && <span className="text-white">Log Workout</span>}
+          <Link to="/workout-log" className="group flex items-center justify-center md:justify-start text-white relative">
+            <img src={LogIcon} alt="Workout Log Icon" className="w-8 h-8" />
+            {isExpanded && <span className="ml-4">Log Workout</span>}
+            {!isExpanded && (
+              <span className="absolute left-16 ml-2 text-sm bg-gray-700 text-white rounded py-1 px-2 opacity-0 group-hover:opacity-100">
+                Log Workout
+              </span>
+            )}
           </Link>
 
-          <Link to="/exercise-search" className="flex items-center text-white py-4">
-            <span className={`mr-3 ${isExpanded ? 'block' : 'hidden'}`}>
-              <img src="" alt="Exercise Search Icon" className="w-6 h-6" />
-            </span>
-            {isExpanded && <span className="text-white">Exercise Search</span>}
+          <Link to="/exercise-search" className="group flex items-center justify-center md:justify-start text-white relative">
+            <img src={SearchIcon} alt="Exercise Search Icon" className="w-8 h-8" />
+            {isExpanded && <span className="ml-4">Exercise Search</span>}
+            {!isExpanded && (
+              <span className="absolute left-16 ml-2 text-sm bg-gray-700 text-white rounded py-1 px-2 opacity-0 group-hover:opacity-100">
+                Exercise Search
+              </span>
+            )}
           </Link>
         </nav>
       </div>
