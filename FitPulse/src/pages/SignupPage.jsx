@@ -1,12 +1,12 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import { useAuthStore } from '../Store/useAuthStore';
-import Logo from '../assets/Logo.png'; // Use the correct path for your logo
+import { useAuthStore } from '../Store/useAuthStore';  // Zustand store for signup
+import Logo from '../assets/Logo.png';  // Adjust the path to your logo
 
 const SignupPage = () => {
   const navigate = useNavigate();
-  const { signup } = useAuthStore();
+  const { signup } = useAuthStore();  // Zustand signup function
 
   const formik = useFormik({
     initialValues: {
@@ -18,8 +18,7 @@ const SignupPage = () => {
       const isSignedUp = signup(values.name, values.email, values.password);
 
       if (isSignedUp) {
-        console.log("Signup successful");  // Debug: Confirm signup worked
-        navigate('/home'); // Redirect after signup
+        navigate('/profile');  // Redirect to profile page after successful signup
       } else {
         alert('Signup failed, email already exists');
       }
@@ -66,9 +65,9 @@ const SignupPage = () => {
           </button>
         </form>
         <p className="text-center mt-4">
-          Or{' '}
+          Already have an account?{' '}
           <a href="/login" className="text-blue-600">
-            Sign in to existing account
+            Sign in
           </a>
         </p>
       </div>

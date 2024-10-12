@@ -1,5 +1,7 @@
-import React from 'react';
+// src/App.jsx
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useAuthStore } from './Store/useAuthStore';
 import NavBar from './components/NavBar'; // Ensure NavBar is imported
 
 // Importing Pages
@@ -8,7 +10,7 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfileSettingsPage';
-import ProgressTrackingPage from './pages/ProgressTrackingPage'; 
+import ProgressTrackingPage from './pages/ProgressTrackingPage';
 import WorkoutHistoryPage from './pages/WorkoutHistoryPage';
 import WorkoutLogPage from './pages/WorkoutLogPage';
 import ExerciseSearchPage from './pages/ExerciseSearchPage';
@@ -36,6 +38,13 @@ const Layout = ({ children }) => {
 };
 
 const App = () => {
+  const { darkMode } = useAuthStore();
+
+  useEffect(() => {
+    // Apply the 'dark' class to the body tag based on the darkMode state
+    document.body.classList.toggle('dark', darkMode);
+  }, [darkMode]);
+
   return (
     <Router>
       <Layout>
@@ -49,7 +58,7 @@ const App = () => {
           <Route path="/workout-history" element={<WorkoutHistoryPage />} />
           <Route path="/workout-log" element={<WorkoutLogPage />} />
           <Route path="/exercise-search" element={<ExerciseSearchPage />} />
-          <Route path="/exercise-details" element={<ExerciseDetailsPage />} />
+          <Route path="/exercise-details/:id" element={<ExerciseDetailsPage />} />
         </Routes>
       </Layout>
     </Router>

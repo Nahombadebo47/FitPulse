@@ -1,12 +1,12 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import { useAuthStore } from '../Store/useAuthStore';
-import Logo from '../assets/Logo.png'; // Use the correct path for your logo
+import { useAuthStore } from '../Store/useAuthStore';  // Zustand for managing auth state
+import Logo from '../assets/Logo.png';  // Ensure correct path for your logo
 
 const LoginPage = () => {
+  const { login } = useAuthStore();  // Zustand login function
   const navigate = useNavigate();
-  const { login } = useAuthStore();
 
   const formik = useFormik({
     initialValues: {
@@ -17,8 +17,7 @@ const LoginPage = () => {
       const isAuthenticated = login(values.email, values.password);
 
       if (isAuthenticated) {
-        console.log("Login successful");  // Debug: Confirm login worked
-        navigate('/home'); // Redirect after login
+        navigate('/profile');  // Redirect to profile after successful login
       } else {
         alert('Invalid credentials');
       }
@@ -56,7 +55,7 @@ const LoginPage = () => {
           </button>
         </form>
         <p className="text-center mt-4">
-          Or{' '}
+          Don't have an account?{' '}
           <a href="/signup" className="text-blue-600">
             Create New Account
           </a>
