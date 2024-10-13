@@ -22,7 +22,7 @@ const LandingPage = () => {
           <p className="text-gray-500 mb-6">Join Our Community of Fitness Enthusiasts</p>
           <button
             onClick={() => navigate('/signup')}
-            className="bg-blue-700 text-white py-2 px-8 rounded-full w-2/4 hover:bg-blue-800 mb-4"
+            className="bg-blue-700 text-white py-2  px-8 rounded-full w-2/4 sm:w-3/4 md:w-2/4 hover:bg-blue-800 mb-4"
           >
             Join
           </button>
@@ -30,7 +30,7 @@ const LandingPage = () => {
             <h3 className="text-gray-700 mb-4">Already a Member? Click Sign in</h3>
             <button
               onClick={() => navigate('/login')}
-              className="bg-blue-700 text-white py-2 px-8 rounded-full w-2/4 hover:bg-blue-800"
+              className="bg-blue-700 text-white py-2 px-8 rounded-full w-2/4  sm:w-3/4 md:w-2/4 hover:bg-blue-800"
             >
               Sign in
             </button>
