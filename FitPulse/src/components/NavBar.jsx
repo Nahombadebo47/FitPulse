@@ -21,8 +21,7 @@ const NavBar = () => {
       <div
         className={`bg-blue-900 h-screen fixed top-0 left-0 flex flex-col ${
           isExpanded ? 'w-48' : 'w-16'
-        } duration-300 z-50 md:w-16`} // Ensure different behavior for medium (md) screens
-        style={{ maxWidth: '100vw' }} // Prevents covering entire screen
+        } duration-300 z-50`}  // Adjust widths for screen sizes, balanced usage of space
       >
         {/* Logo and Hamburger */}
         <div className="flex items-center justify-between px-4 py-5">
@@ -31,7 +30,7 @@ const NavBar = () => {
           </Link>
           <button
             onClick={toggleMenu}
-            className="text-blue-500 text-2xl focus:outline-none"
+            className="text-blue-500 text-2xl focus:outline-none"  // Hamburger menu color changed from white to blue
           >
             {isExpanded ? '×' : '≡'}
           </button>
@@ -49,7 +48,7 @@ const NavBar = () => {
               className="w-6 h-6 mr-3 group-hover:scale-110 duration-200"
             />
             {isExpanded && (
-              <span className="group-hover:text-yellow-500 duration-200 block">
+              <span className="group-hover:text-yellow-500 duration-200 hidden md:block">
                 Home
               </span>
             )}
@@ -65,7 +64,7 @@ const NavBar = () => {
               className="w-6 h-6 mr-3 group-hover:scale-110 duration-200"
             />
             {isExpanded && (
-              <span className="group-hover:text-yellow-500 duration-200 block">
+              <span className="group-hover:text-yellow-500 duration-200 hidden md:block">
                 Profile
               </span>
             )}
@@ -81,7 +80,7 @@ const NavBar = () => {
               className="w-6 h-6 mr-3 group-hover:scale-110 duration-200"
             />
             {isExpanded && (
-              <span className="group-hover:text-yellow-500 duration-200 block">
+              <span className="group-hover:text-yellow-500 duration-200 hidden md:block">
                 Progress Tracking
               </span>
             )}
@@ -97,7 +96,7 @@ const NavBar = () => {
               className="w-6 h-6 mr-3 group-hover:scale-110 duration-200"
             />
             {isExpanded && (
-              <span className="group-hover:text-yellow-500 duration-200 block">
+              <span className="group-hover:text-yellow-500 duration-200 hidden md:block">
                 Workout History
               </span>
             )}
@@ -113,7 +112,7 @@ const NavBar = () => {
               className="w-6 h-6 mr-3 group-hover:scale-110 duration-200"
             />
             {isExpanded && (
-              <span className="group-hover:text-yellow-500 duration-200 block">
+              <span className="group-hover:text-yellow-500 duration-200 hidden md:block">
                 Log Workout
               </span>
             )}
@@ -129,7 +128,7 @@ const NavBar = () => {
               className="w-6 h-6 mr-3 group-hover:scale-110 duration-200"
             />
             {isExpanded && (
-              <span className="group-hover:text-yellow-500 duration-200 block">
+              <span className="group-hover:text-yellow-500 duration-200 hidden md:block">
                 Exercise Search
               </span>
             )}
@@ -138,7 +137,7 @@ const NavBar = () => {
       </div>
 
       {/* Main content wrapper to accommodate for the navbar */}
-      <div className={`ml-${isExpanded ? '48' : '16'} flex-grow duration-300 md:ml-16`}> {/* Fixed for medium screens */}
+      <div className={`ml-${isExpanded ? '48' : '16'} flex-grow duration-300`}>
         {/* Main content goes here */}
       </div>
     </div>
