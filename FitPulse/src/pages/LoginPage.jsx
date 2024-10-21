@@ -55,7 +55,7 @@ const LoginPage = () => {
         </form>
         <p className="text-center mt-4">
           Don't have an account?{' '}
-          <a href="/Signup" className="text-blue-600">
+          <a href="/signup" onClick={navigate('Signup')} className="text-blue-600">
             Create New Account
           </a>
         </p>
